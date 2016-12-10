@@ -4,10 +4,7 @@
   "description": "CSS constructor for your React components",
   "main": "index.js",
   "scripts": {
-    "build": "babel index.js -o css-constructor.js",
-    "build:example": "browserify example/entry.js -o example/bundle.js",
-    "start:example": "list example/",
-    "dev": "run-p build build:example start:example"
+    "build": "babel index.js -o css-constructor.js"
   },
   "keywords": "react, css, constructor",
   "author": "siddharthkp",
@@ -19,24 +16,11 @@
     "babel-cli": "6.18.0",
     "babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
     "babel-plugin-transform-object-rest-spread": "6.19.0",
-    "babel-preset-es2015": "6.18.0",
-    "babel-preset-react": "6.16.0",
-    "babelify": "7.3.0",
-    "browserify": "13.1.1",
-    "list": "0.9.0",
-    "npm-run-all": "3.1.2",
-    "react": "15.4.1",
-    "react-dom": "15.4.1"
-  },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
+    "babel-preset-es2015": "6.18.0"
   },
   "babel": {
     "presets": [
-      "es2015",
-      "react"
+      "es2015"
     ],
     "plugins": [
       "transform-decorators-legacy",
