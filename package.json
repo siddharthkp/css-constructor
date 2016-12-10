@@ -2,7 +2,7 @@
   "name": "decorators",
   "version": "0.0.1",
   "description": "CSS constructor for your React components",
-  "main": "index.js",
+  "main": "css-constructor.js",
   "scripts": {
     "build": "babel index.js -o css-constructor.js"
   },
