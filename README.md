@@ -1,6 +1,7 @@
 ### CSS constructor 💄 for React components
 
 ![beta](https://img.shields.io/badge/status-beta-yellow.svg)
+
 --
 
 Every React component gets a javascript constructor for functional logic.
@@ -56,21 +57,24 @@ export default class Hello extends React.Component {
 
 #### Usage
 
-```
-npm install css-constructor --save
-```
+1. `npm install css-constructor --save`
 
-Add a `@css` block just before the `render` function (important)
+2. Add a `@css` block **just before** the `render` function (important)
 
-Bonus: It also works with the offical emoji
+3. Add `transform-decorators-legacy` to `plugins` in `.babelrc` (Already downloaded with 💄)
+
+You can start using this right away. Even though 💄 is in `BETA`, the `@css` block will always look the same.
+
+--
+
+Bonus: You can also use the official emoji instead of `@css`
 ```js
 @💄`
   color: #FF6962;
 `
 ```
 
-You can start using this right away. Even though 💄 is in `BETA`, the `@css` block will always look the same.
-
+--
 
 #### How does it work?
 
