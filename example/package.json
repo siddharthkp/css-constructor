@@ -1,0 +1,36 @@
+{
+  "main": "bundle.js",
+  "scripts": {
+    "build": "browserify entry.js -o bundle.js",
+    "start": "list"
+  },
+  "dependencies": {
+    "react": "15.4.1",
+    "react-dom": "15.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0",
+    "babelify": "7.3.0",
+    "browserify": "13.1.1",
+    "list": "0.9.0"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "transform-decorators-legacy",
+      "transform-es2015-modules-commonjs"
+    ]
+  }
+}
