@@ -61,7 +61,8 @@ export default class Hello extends React.Component {
 
 2. Add a `@css` block **just before** the `render` function (important)
 
-3. Add `transform-decorators-legacy` to `plugins` in `.babelrc` (Already downloaded with 💄)
+3. Add `transform-decorators-legacy` as the first `plugin` in your `.babelrc`. It is already downloaded with 💄; 
+   If you are not familiar with `babel plugins` you can follow the [detailed instructions here.](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy#installation--usage)
 
 You can start using this right away. Even though 💄 is in `BETA`, the `@css` block will always look the same.
 
