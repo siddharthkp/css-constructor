@@ -13,6 +13,9 @@
     "build": "api.js",
     "copy": "css-constructor.js"
   },
+  "files": [
+    "css-constructor.js"
+  ],
   "keywords": "react, css, constructor",
   "author": "siddharthkp",
   "license": "MIT",
