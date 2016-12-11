@@ -4,17 +4,14 @@
   "description": "CSS constructor for your components",
   "main": "css-constructor.js",
   "scripts": {
-    "build:api1": "babel api1.js -o css1.js",
-    "build:api2": "babel api2.js -o css2.js",
-    "build:api4": "babel api4.js -o css4.js",
-    "build": "run-p build:*",
-    "copy": "cp css* example/",
+    "build": "babel api.js -o css-constructor.js",
+    "copy": "cp css-constructor.js example/",
     "dev": "run-s build copy && cd example && run-s build start",
     "watch": "npm-watch"
   },
   "watch": {
-    "build:api4": "api4.js",
-    "copy": "css4.js"
+    "build": "api.js",
+    "copy": "css-constructor.js"
   },
   "keywords": "react, css, constructor",
   "author": "siddharthkp",

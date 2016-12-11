@@ -1,7 +1,7 @@
 import React from 'react';
-import css from './css4';
+import css from './css-constructor';
 
-export default class WithProps extends React.Component {
+export default class Hello extends React.Component {
 
     /* javascript constructor */
     constructor (props) {

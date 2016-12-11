@@ -14,22 +14,24 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function css(className) {
-    if (typeof className === 'function') {
-        Object.defineProperty(className.prototype, 'render', {
-            value: wrapper(className)
-        });
-    }
-}
+function css(rawCSSWithProps) {
+    return function (target, name, descriptor) {
+        return _extends({}, descriptor, {
+            value: function value() {
+                var props = void 0;
+                function giveMeProps(object) {
+                    props = object.props;
+                    return object;
+                }
+                var rendered = descriptor.value.apply(giveMeProps(this), arguments);
 
-function wrapper(className) {
-    var fn = className.prototype.render;
-    return function () {
-        var rawCSS = className.prototype.css.apply(this, arguments);
-        var style = parseCss(rawCSS);
-        var renderedElement = fn.apply(this, arguments);
-        var newProps = _extends({}, renderedElement.props, { style: style });
-        return _react2.default.cloneElement(renderedElement, newProps, renderedElement.props.children);
+                var rawCSS = fillProps(rawCSSWithProps[0], props);
+                var style = parseCss(rawCSS);
+                var newProps = _extends({}, props, { style: style });
+
+                return _react2.default.cloneElement(rendered, newProps, rendered.props.children);
+            }
+        });
     };
 }
 
@@ -39,16 +41,53 @@ var camelCase = function camelCase(key) {
     });
 };
 
+var fillProps = function fillProps(rawCSSWithProps, props) {
+    var re = /{this.props.*}/g;
+    var matches = rawCSSWithProps.match(re);
+    if (matches && matches.length) {
+        var _iteratorNormalCompletion = true;
+        var _didIteratorError = false;
+        var _iteratorError = undefined;
+
+        try {
+            for (var _iterator = matches[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                var match = _step.value;
+
+                var keyword = match;
+                keyword = keyword.replace('{this.props.', '');
+                keyword = keyword.substring(0, keyword.length - 1); // }
+                keyword = keyword.trim();
+
+                rawCSSWithProps = rawCSSWithProps.replace(match, props[keyword]);
+            }
+        } catch (err) {
+            _didIteratorError = true;
+            _iteratorError = err;
+        } finally {
+            try {
+                if (!_iteratorNormalCompletion && _iterator.return) {
+                    _iterator.return();
+                }
+            } finally {
+                if (_didIteratorError) {
+                    throw _iteratorError;
+                }
+            }
+        }
+    }
+    return rawCSSWithProps;
+};
+
 var parseCss = function parseCss(rawCSS) {
     var styles = {};
     var rules = rawCSS.trim().split('\n');
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
+    var _iteratorNormalCompletion2 = true;
+    var _didIteratorError2 = false;
+    var _iteratorError2 = undefined;
 
     try {
-        for (var _iterator = rules[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var rule = _step.value;
+        for (var _iterator2 = rules[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var rule = _step2.value;
 
             var _rule$trim$replace$sp = rule.trim().replace(';', '').split(':'),
                 _rule$trim$replace$sp2 = _slicedToArray(_rule$trim$replace$sp, 2),
@@ -60,16 +99,16 @@ var parseCss = function parseCss(rawCSS) {
             styles[key] = value;
         }
     } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
     } finally {
         try {
-            if (!_iteratorNormalCompletion && _iterator.return) {
-                _iterator.return();
+            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                _iterator2.return();
             }
         } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
+            if (_didIteratorError2) {
+                throw _iteratorError2;
             }
         }
     }
