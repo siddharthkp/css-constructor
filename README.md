@@ -23,14 +23,17 @@ export default class Hello extends React.Component {
     @css`
         font-size: 16px;
         text-align: center;
-        color: #5AF78E;
+        color: {this.props.color};
         font-family: monospace;
     `
 
     render () {
-        return <div>Styled text!</div>
+        return <div>Styled {this.props.color} text!</div>
     }
 };
+
+// <Hello color='papayawhip'/>
+
 ```
 
 --
