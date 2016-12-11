@@ -1,26 +1,22 @@
 import React from 'react';
 
-function css (rawCSSWithProps) {
-    return function (target, name, descriptor) {
-        return {
-            ...descriptor,
-            value: function () {
-                let props;
-                function giveMeProps(object) {
-                    props = object.props;
-                    return object;
-                }
-                let rendered = descriptor.value.apply(giveMeProps(this), arguments);
+let css = (rawCSSWithProps) => (target, name, descriptor) => ({
+    ...descriptor,
+    value: function () {
+        let props;
+        let giveMeProps = (object) => {
+            props = object.props;
+            return object;
+        };
+        let rendered = descriptor.value.apply(giveMeProps(this), arguments);
 
-                let rawCSS = fillProps(rawCSSWithProps[0], props)
-                let style = parseCss(rawCSS);
-                let newProps = {...props, style};
+        let rawCSS = fillProps(rawCSSWithProps[0], props)
+        let style = parseCss(rawCSS);
+        let newProps = {...props, style};
 
-                return React.cloneElement(rendered, newProps, rendered.props.children);
-            }
-        }
-    };
-}
+        return React.cloneElement(rendered, newProps, rendered.props.children);
+    }
+});
 
 let camelCase = (key) => key.replace(/(\-[a-z])/g, $1 => $1.toUpperCase().replace('-',''));
 
