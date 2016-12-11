@@ -20,6 +20,6 @@ export default class WithProps extends React.Component {
     }
 
     render () {
-        return <div>Styled text! {this.props.color}</div>
+        return <div>Styled {this.props.color} text!</div>
     }
 };

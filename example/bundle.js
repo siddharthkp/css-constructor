@@ -20845,8 +20845,9 @@ var WithProps = (0, _css2.default)(_class = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 null,
-                'Styled text! ',
-                this.props.color
+                'Styled ',
+                this.props.color,
+                ' text!'
             );
         }
     }]);
