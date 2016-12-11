@@ -66,16 +66,6 @@ export default class Hello extends React.Component {
 
 You can start using this right away. Even though 💄 is in `BETA`, the `@css` block will always look the same.
 
---
-
-Bonus: You can also use the official emoji instead of `@css`
-```js
-@💄`
-  color: #FF6962;
-`
-```
-
---
 
 #### How does it work?
 
