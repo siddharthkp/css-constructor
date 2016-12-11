@@ -77,6 +77,8 @@ export default class Hello extends React.Component {
 
 If you are not familiar with `babel plugins` you can follow the [detailed instructions here.](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy#installation--usage)
 
+Or, if you would prefer using 💄 without adding the babel transform for decorators, [up-vote this issue](https://github.com/siddharthkp/css-constructor/issues/1).
+
 --
 
 You can start using this right away. Even though 💄 is in `BETA`, the `@css` block will always look the same.
