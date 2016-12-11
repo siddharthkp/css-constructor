@@ -2,6 +2,7 @@
   "main": "bundle.js",
   "scripts": {
     "build": "browserify entry.js -o bundle.js",
+    "watch": "watchify -vd entry.js -o bundle.js",
     "start": "list"
   },
   "dependencies": {
@@ -16,7 +17,8 @@
     "babel-preset-react": "6.16.0",
     "babelify": "7.3.0",
     "browserify": "13.1.1",
-    "list": "0.9.0"
+    "list": "0.9.0",
+    "watchify": "3.7.0"
   },
   "browserify": {
     "transform": [

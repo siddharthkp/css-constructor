@@ -6,9 +6,15 @@
   "scripts": {
     "build:api1": "babel api1.js -o css1.js",
     "build:api2": "babel api2.js -o css2.js",
+    "build:api4": "babel api4.js -o css4.js",
     "build": "run-p build:*",
     "copy": "cp css* example/",
-    "dev": "run-s build copy && cd example && run-s build start"
+    "dev": "run-s build copy && cd example && run-s build start",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "build:api4": "api4.js",
+    "copy": "css4.js"
   },
   "keywords": "react, css, constructor",
   "author": "siddharthkp",
@@ -21,7 +27,8 @@
     "babel-plugin-transform-es2015-modules-commonjs": "6.18.0",
     "babel-plugin-transform-object-rest-spread": "6.19.0",
     "babel-preset-es2015": "6.18.0",
-    "npm-run-all": "3.1.2"
+    "npm-run-all": "3.1.2",
+    "npm-watch": "0.1.6"
   },
   "babel": {
     "presets": [
