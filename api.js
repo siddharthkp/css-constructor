@@ -72,6 +72,7 @@ let fillProps = (rawCSS, props) => {
 
     Split on semi-colon
     Trim the whitespace
+    Split on :
     Camel case keys
 */
 let parseCss = (realCSS) => {

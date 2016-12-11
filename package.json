@@ -39,6 +39,7 @@
       "es2015",
       "babili"
     ],
+    "comments": false,
     "plugins": [
       "transform-decorators-legacy",
       "transform-object-rest-spread",
