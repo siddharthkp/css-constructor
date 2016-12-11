@@ -71,9 +71,11 @@ export default class Hello extends React.Component {
 
 1. `npm install css-constructor --save`
 
-2. Add a `@css` block **just before** the `render` function (important)
+2. `import css from 'css-constructor'`
 
-3. Add `transform-decorators-legacy` as the first `plugin` in your `.babelrc` (already downloaded with 💄).
+3. Add a `@css` block **just before** the `render` function (important)
+
+4. Add `transform-decorators-legacy` as the first `plugin` in your `.babelrc` (already downloaded with 💄).
 
 If you are not familiar with `babel plugins` you can follow the [detailed instructions here.](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy#installation--usage)
 
