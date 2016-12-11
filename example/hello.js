@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './css-constructor';
+import css from 'css-constructor';
 
 export default class Hello extends React.Component {
 
