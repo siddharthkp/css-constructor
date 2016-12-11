@@ -39,6 +39,8 @@ export default class Hello extends React.Component {
 
 🎀 Supports real css
 
+🔥 use props in css
+
 🔼 Attaches **inline styles** to the highest element in your component
 
 💄 Offical library emoji
@@ -47,11 +49,14 @@ export default class Hello extends React.Component {
 
 *Coming soon*
 
-🔥 use props in css
-
 🙋 classes instead of inline styles
 
+🌀 pseudo selectors
+
 📱 media queries support
+
+👪 nested css
+
 
 --
 
