@@ -23,13 +23,14 @@ let css = (rawCSS) => (parentClass, name, descriptor) => ({
         let rendered = descriptor.value.apply(getProps(this), arguments);
 
         /* Replace props and return realCSS™ */
-        let realCSS = fillProps(rawCSS, originalProps)
+        let realCSS = fillProps(rawCSS, originalProps);
+        let className = insertRules(realCSS);
 
         /* Convert real CSS to javascripty CSS */
-        let style = parseCss(realCSS);
+        //let style = parseCss(realCSS);
 
         /* Merge styles into original props */
-        let newProps = {...originalProps, style};
+        let newProps = {...originalProps, className};
 
         /*
             Pass on a clone of the rendered component
@@ -68,25 +69,36 @@ let fillProps = (rawCSS, props) => {
 }
 
 /*
-    Convert realCSS to javascripty CSS
-
-    Split on semi-colon
-    Trim the whitespace
-    Split on :
-    Camel case keys
+    Add stylesheet for component
 */
-let parseCss = (realCSS) => {
-    let styles = {};
-    let rules = realCSS.trim().split(';');
-    for (let rule of rules) {
-        let [key, value] = rule.trim().split(':');
-        if (key && value) {
-            key = camelCase(key.trim());
-            value = value.trim();
-            styles[key] = value;
-        }
+
+let insertRules = (realCSS) => {
+    let sheet = getStyleSheet();
+    let className = getHash(realCSS);
+    sheet.insertRule(`.${className}{${realCSS}}`, sheet.cssRules.length);
+    return className;
+}
+
+let getHash = (string) => {
+    /* Get random string */
+    let hash = Math.random().toString(36).substring(22);
+    /* CSS classnames should begin with an alphabet */
+    return 'c' + hash;
+}
+
+let getStyleSheet = () => {
+    let sheets = document.styleSheets;
+    let index = -1;
+    for (let i = 0; i < sheets.length; i++) {
+        if (sheets[i].title === 'css-constructor') index = i;
     }
-    return styles;
+    if (index !== -1) return sheets[index];
+    else {
+        let styleElement = document.createElement('style');
+        styleElement.setAttribute('title', 'css-constructor');
+        document.head.appendChild(styleElement);
+        return styleElement.sheet;
+    }
 }
 
 let camelCase = (key) => key.replace(/(\-[a-z])/g, $1 => $1.toUpperCase().replace('-',''));

@@ -1,26 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
-Object.defineProperty(exports, '__esModule', { value: !0 });var _slicedToArray = function () {
-  function sliceIterator(arr, i) {
-    var _arr = [],
-        _n = !0,
-        _d = !1,
-        _e = void 0;try {
-      for (var _s, _i = arr[Symbol.iterator](); !(_n = (_s = _i.next()).done) && (_arr.push(_s.value), !(i && _arr.length === i)); _n = !0) {}
-    } catch (err) {
-      _d = !0, _e = err;
-    } finally {
-      try {
-        !_n && _i['return'] && _i['return']();
-      } finally {
-        if (_d) throw _e;
-      }
-    }return _arr;
-  }return function (arr, i) {
-    if (Array.isArray(arr)) return arr;if (Symbol.iterator in Object(arr)) return sliceIterator(arr, i);throw new TypeError('Invalid attempt to destructure non-iterable instance');
-  };
-}(),
-    _extends = Object.assign || function (target) {
+Object.defineProperty(exports, '__esModule', { value: !0 });var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i];for (var key in source) {
       Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
@@ -33,12 +13,12 @@ Object.defineProperty(exports, '__esModule', { value: !0 });var _slicedToArray =
   return function (b, c, d) {
     return _extends({}, d, { value: function value() {
         var e = void 0,
-            f = d.value.apply(function (j) {
-          return e = j.props, j;
+            f = d.value.apply(function (k) {
+          return e = k.props, k;
         }(this), arguments),
             g = fillProps(a, e),
-            h = parseCss(g),
-            i = _extends({}, e, { style: h });return _react2.default.cloneElement(f, i, f.props.children);
+            h = insertRules(g),
+            j = _extends({}, e, { className: h });return _react2.default.cloneElement(f, j, f.props.children);
       } });
   };
 },
@@ -63,27 +43,18 @@ Object.defineProperty(exports, '__esModule', { value: !0 });var _slicedToArray =
     }
   }return a;
 },
-    parseCss = function parseCss(a) {
-  var b = {},
-      c = a.trim().split(';');var _iteratorNormalCompletion2 = !0,
-      _didIteratorError2 = !1,
-      _iteratorError2 = void 0;try {
-    for (var _step2, _iterator2 = c[Symbol.iterator](); !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = !0) {
-      var d = _step2.value,
-          _d$trim$split = d.trim().split(':'),
-          _d$trim$split2 = _slicedToArray(_d$trim$split, 2),
-          e = _d$trim$split2[0],
-          f = _d$trim$split2[1];e && f && (e = camelCase(e.trim()), f = f.trim(), b[e] = f);
-    }
-  } catch (err) {
-    _didIteratorError2 = !0, _iteratorError2 = err;
-  } finally {
-    try {
-      !_iteratorNormalCompletion2 && _iterator2.return && _iterator2.return();
-    } finally {
-      if (_didIteratorError2) throw _iteratorError2;
-    }
-  }return b;
+    insertRules = function insertRules(a) {
+  var b = getStyleSheet(),
+      c = getHash(a);return b.insertRule('.' + c + '{' + a + '}', b.cssRules.length), c;
+},
+    getHash = function getHash() {
+  var a = Math.random().toString(36).substring(22);return 'c' + a;
+},
+    getStyleSheet = function getStyleSheet() {
+  var a = document.styleSheets,
+      b = -1;for (var c = 0; c < a.length; c++) {
+    'css-constructor' === a[c].title && (b = c);
+  }if (-1 !== b) return a[b];var _c = document.createElement('style');return _c.setAttribute('title', 'css-constructor'), document.head.appendChild(_c), _c.sheet;
 },
     camelCase = function camelCase(a) {
   return a.replace(/(\-[a-z])/g, function (b) {
