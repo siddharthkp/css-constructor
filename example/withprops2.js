@@ -12,7 +12,7 @@ export default class WithProps extends React.Component {
     @css`
         font-size: 16px;
         text-align: center;
-        color: #5AF78E;
+        color: {this.props.color};
         font-family: monospace;
     `
 
