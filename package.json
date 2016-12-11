@@ -3,6 +3,8 @@
   "version": "0.0.3",
   "description": "CSS constructor for your components",
   "main": "css-constructor.js",
+  "homepage": "https://github.com/siddharthkp/css-constructor",
+  "repository": "siddharthkp/css-constructor",
   "scripts": {
     "build": "babel api.js -o css-constructor.js",
     "copy": "cp css-constructor.js example/",
