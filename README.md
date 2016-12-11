@@ -44,7 +44,9 @@ export default class Hello extends React.Component {
 
 🔥 use props in css
 
-🔼 Attaches **inline styles** to the highest element in your component
+🔼 Attaches styles to the highest element in your component
+
+🙋 Uses classes instead of inline styles
 
 👶 Super tiny: only 1.4K gzipped
 
@@ -53,8 +55,6 @@ export default class Hello extends React.Component {
 --
 
 *Coming soon*
-
-🙋 classes instead of inline styles
 
 🌀 pseudo selectors
 
