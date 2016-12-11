@@ -42,12 +42,14 @@ let fillProps = (rawCSSWithProps, props) => {
 
 let parseCss = (rawCSS) => {
     let styles = {};
-    let rules = rawCSS.trim().split('\n');
+    let rules = rawCSS.trim().split(';');
     for (let rule of rules) {
-        let [key, value] = rule.trim().replace(';', '').split(':');
-        key = camelCase(key.trim());
-        value = value.trim();
-        styles[key] = value;
+        let [key, value] = rule.trim().split(':');
+        if (key && value) {
+            key = camelCase(key.trim());
+            value = value.trim();
+            styles[key] = value;
+        }
     }
     return styles;
 }

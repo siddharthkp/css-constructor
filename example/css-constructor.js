@@ -80,7 +80,7 @@ var fillProps = function fillProps(rawCSSWithProps, props) {
 
 var parseCss = function parseCss(rawCSS) {
     var styles = {};
-    var rules = rawCSS.trim().split('\n');
+    var rules = rawCSS.trim().split(';');
     var _iteratorNormalCompletion2 = true;
     var _didIteratorError2 = false;
     var _iteratorError2 = undefined;
@@ -89,14 +89,16 @@ var parseCss = function parseCss(rawCSS) {
         for (var _iterator2 = rules[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
             var rule = _step2.value;
 
-            var _rule$trim$replace$sp = rule.trim().replace(';', '').split(':'),
-                _rule$trim$replace$sp2 = _slicedToArray(_rule$trim$replace$sp, 2),
-                key = _rule$trim$replace$sp2[0],
-                value = _rule$trim$replace$sp2[1];
+            var _rule$trim$split = rule.trim().split(':'),
+                _rule$trim$split2 = _slicedToArray(_rule$trim$split, 2),
+                key = _rule$trim$split2[0],
+                value = _rule$trim$split2[1];
 
-            key = camelCase(key.trim());
-            value = value.trim();
-            styles[key] = value;
+            if (key && value) {
+                key = camelCase(key.trim());
+                value = value.trim();
+                styles[key] = value;
+            }
         }
     } catch (err) {
         _didIteratorError2 = true;
