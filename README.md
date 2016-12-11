@@ -83,6 +83,9 @@ Or, if you would prefer using 💄 without adding the babel transform for decora
 
 You can start using this right away. Even though 💄 is in `BETA`, the `@css` block will always look the same.
 
+#### Beta
+
+The implementation is still fragile, report bugs if find any. Or, bookmark with a ⭐️ and check back soon.
 
 #### How does it work?
 
