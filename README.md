@@ -4,7 +4,7 @@
 
 --
 
-Every React component gets a javascript constructor for functional logic.
+Every React component gets an inbuilt javascript constructor for functional logic.
 
 **Introducing the css constructor for styling!**
 
@@ -43,6 +43,8 @@ export default class Hello extends React.Component {
 
 🔼 Attaches **inline styles** to the highest element in your component
 
+👶 Super tiny: only 1.4K gzipped
+
 💄 Offical library emoji
 
 --
@@ -55,6 +57,8 @@ export default class Hello extends React.Component {
 
 📱 media queries support
 
+💻 vendor prefixes
+
 👪 nested css
 
 
@@ -66,15 +70,18 @@ export default class Hello extends React.Component {
 
 2. Add a `@css` block **just before** the `render` function (important)
 
-3. Add `transform-decorators-legacy` as the first `plugin` in your `.babelrc`. It is already downloaded with 💄; 
-   If you are not familiar with `babel plugins` you can follow the [detailed instructions here.](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy#installation--usage)
+3. Add `transform-decorators-legacy` as the first `plugin` in your `.babelrc` (already downloaded with 💄).
+
+If you are not familiar with `babel plugins` you can follow the [detailed instructions here.](https://github.com/loganfsmyth/babel-plugin-transform-decorators-legacy#installation--usage)
+
+--
 
 You can start using this right away. Even though 💄 is in `BETA`, the `@css` block will always look the same.
 
 
 #### How does it work?
 
-💄 uses [ES7 class function decorators](https://github.com/wycats/javascript-decorators) on the render function.
+💄 uses [ES7 class method decorators](https://github.com/wycats/javascript-decorators) on the render function.
 I'll probably write a detailed post about it.
 
 #### Inspiration
