@@ -1,5 +1,5 @@
 {
-  "name": "decorators",
+  "name": "css-constructor",
   "version": "0.0.1",
   "description": "CSS constructor for your components",
   "main": "css-constructor.js",
