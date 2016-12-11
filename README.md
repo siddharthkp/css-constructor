@@ -48,7 +48,7 @@ export default class Hello extends React.Component {
 
 🙋 Uses classes instead of inline styles
 
-👶 Super tiny: only 1.4K gzipped
+👶 Super tiny: only 1.2K gzipped
 
 💄 Offical library emoji
 
