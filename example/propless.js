@@ -1,11 +1,11 @@
 import React from 'react';
-import css from './css-constructor';
+import css from './css1';
 
-export default class Hello extends React.Component {
+export default class Propless extends React.Component {
 
     /* javascript constructor */
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
     }
 
     /* css constructor */

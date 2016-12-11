@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Hello from './hello';
+import Propless from './propless';
+import WithProps from './withprops';
 
 ReactDOM.render(
-  <Hello/>,
+    (<div>
+        <Propless />
+        <WithProps color='red'/>
+    </div>),
   document.getElementById('container')
 );
