@@ -27,6 +27,9 @@ export default class Hello extends React.Component {
         /* Use props in your CSS */
         color: {this.props.color};
 
+        /* Adds vendor prefixes */
+        display: flex;
+
         /* Pseudo selectors */
         &:hover {
             color: #FFF;
@@ -78,13 +81,9 @@ export default class Hello extends React.Component {
 
 👪 nested css
 
-💄 Offical library emoji
-
---
-
-*Coming soon*
-
 💻 vendor prefixes
+
+💄 Offical library emoji
 
 --
 
@@ -118,6 +117,8 @@ I'll probably write a detailed post about it.
 #### Inspiration
 
 Heavily inspired from [glamor](https://github.com/threepointone/glamor), [styled-components](https://github.com/styled-components/styled-components) and [radium](https://github.com/FormidableLabs/radium)
+
+Special thanks to [thysultan](https://twitter.com/thysultan) for [stylis](https://github.com/thysultan/stylis.js)
 
 #### Support
 

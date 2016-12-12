@@ -17,6 +17,9 @@ export default class Hello extends React.Component {
         /* Use props in your CSS */
         color: {this.props.color};
 
+        /* Adds vendor prefixes */
+        display: flex;
+
         /* Pseudo selectors */
         &:hover {
             color: #FFF;
