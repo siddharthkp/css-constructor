@@ -8,7 +8,7 @@ Every React component gets an inbuilt javascript constructor for functional logi
 
 **Introducing the css constructor for styling!**
 
-```js
+```jsx
 import React from 'react';
 import css from 'css-constructor';
 
