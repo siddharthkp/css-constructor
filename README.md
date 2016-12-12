@@ -17,21 +17,24 @@ export default class Hello extends React.Component {
 
     /* css constructor */
     @css`
+        /* 🔒 Isolated and co-located */
+
+        /* 🎀 Supports the entirety of CSS */
         font-size: 16px;
         text-align: center;
 
-        /* Use props in your CSS */
+        /* 🔥 Use props in css */
         color: {this.props.color};
 
-        /* Adds vendor prefixes */
+        /* 💻 Built in vendor prefixing */
         display: flex;
 
-        /* Pseudo selectors */
+        /* 🌀 Pseudo selectors */
         &:hover {
             color: #FFF;
         }
 
-        /* Nested elements */
+        /* 👪 Nested css */
         img {
             border-radius: 50%;
         }
@@ -39,13 +42,14 @@ export default class Hello extends React.Component {
             margin-top: 20px;
         }
 
-        /* Media queries */
+        /* 📱 Media queries support */
         @media (max-width: 600px) {
             & {font-size: 18px;}
         }
     `
 
     render () {
+        /* 🔼 Attaches styles to the highest element in your component */
         return (<div>
             <img src="https://github.com/siddharthkp.png"/>
             <div id="handle">@siddharthkp</div>
@@ -59,25 +63,9 @@ export default class Hello extends React.Component {
 
 --
 
-**Features:**
-
-🎀 Supports the entirety of CSS
-
-🔥 Use props in css
-
-🔼 Attaches styles to the highest element in your component
+**Other features**
 
 🙋 Uses classes instead of inline styles
-
-🔒 Isolated and co-located
-
-🌀 pseudo selectors
-
-📱 media queries support
-
-👪 nested css
-
-💻 built in vendor prefixes
 
 🔧 Editable in developer tools
 
