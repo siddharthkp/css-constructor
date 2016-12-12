@@ -6,7 +6,7 @@ Every React component gets an inbuilt javascript constructor for functional logi
 
 ```jsx
 import React from 'react';
-import css from 'css-constructor';
+import css from 'css-constructor';                  // 👶 Super tiny: only 1.2K gzipped!
 
 export default class Hello extends React.Component {
 
@@ -15,42 +15,33 @@ export default class Hello extends React.Component {
         super(props);
     }
 
-    /* css constructor */
-    @css`
-        /* 🔒 Isolated and co-located */
+    /* css constructor */                           
+    @css`                                           // 🔒 Isolated and co-located
+        font-size: 16px;                            
+        text-align: center;                         // 🎀 Supports the entirety of CSS
 
-        /* 🎀 Supports the entirety of CSS */
-        font-size: 16px;
-        text-align: center;
+        color: {this.props.color};                  // 🔥 Use props in css
 
-        /* 🔥 Use props in css */
-        color: {this.props.color};
+        display: flex;                              // 💻 Built in vendor prefixing
 
-        /* 💻 Built in vendor prefixing */
-        display: flex;
-
-        /* 🌀 Pseudo selectors */
-        &:hover {
+        &:hover {                                   // 🌀 Pseudo selectors
             color: #FFF;
         }
 
-        /* 👪 Nested css */
-        img {
+        img {                                       // 👪 Nested css
             border-radius: 50%;
         }
         #handle {
             margin-top: 20px;
         }
 
-        /* 📱 Media queries support */
-        @media (max-width: 600px) {
+        @media (max-width: 600px) {                 // 📱 Media queries support
             & {font-size: 18px;}
         }
     `
 
     render () {
-        /* 🔼 Attaches styles to the highest element in your component */
-        return (<div>
+        return (<div>                               // 🔼 Attaches styles to the highest element in your component
             <img src="https://github.com/siddharthkp.png"/>
             <div id="handle">@siddharthkp</div>
         </div>)
