@@ -1,9 +1,5 @@
 ### CSS constructor 💄 for React components
 
-![beta](https://img.shields.io/badge/status-beta-yellow.svg)
-
---
-
 Every React component gets an inbuilt javascript constructor for functional logic.
 
 **Introducing the css constructor for styling!**
@@ -107,16 +103,10 @@ Or, if you would prefer using 💄 without adding the babel transform for decora
 
 --
 
-You can start using this right away. Even though 💄 is in `BETA`, the `@css` block will always look the same.
-
-#### Beta
-
-The implementation is still fragile, report bugs if find any. Or, bookmark with a ⭐️ and check back soon.
-
 #### How does it work?
 
 💄 uses [ES7 class method decorators](https://github.com/wycats/javascript-decorators) on the render function.
-I'll probably write a detailed post about it.
+Detailed post coming soon.
 
 #### Inspiration
 
