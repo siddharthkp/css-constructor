@@ -1,4 +1,4 @@
-### CSS constructor 💄 for React components
+![CSS constructor for React](https://raw.githubusercontent.com/siddharthkp/css-constructor/master/header.png)
 
 Every React component gets an inbuilt javascript constructor for functional logic.
 
