@@ -65,9 +65,9 @@ export default class Hello extends React.Component {
 
 **Features:**
 
-🎀 Supports real css
+🎀 Supports the entirety of CSS
 
-🔥 use props in css
+🔥 Use props in css
 
 🔼 Attaches styles to the highest element in your component
 
@@ -81,7 +81,7 @@ export default class Hello extends React.Component {
 
 👪 nested css
 
-💻 vendor prefixes
+💻 built in vendor prefixes
 
 🔧 Editable in developer tools
 
