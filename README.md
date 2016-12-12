@@ -41,7 +41,7 @@ export default class Hello extends React.Component {
     `
 
     render () {
-        return (<div>                               // 🔼 Attaches styles to the highest element in your component
+        return (<div>                               // 🔼 Attaches class to the highest element
             <img src="https://github.com/siddharthkp.png"/>
             <div id="handle">@siddharthkp</div>
         </div>)
