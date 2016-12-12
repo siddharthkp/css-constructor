@@ -73,7 +73,7 @@ export default class Hello extends React.Component {
 
 🙋 Uses classes instead of inline styles
 
-👶 Super tiny: only 1.2K gzipped
+🔒 Isolated and co-located
 
 🌀 pseudo selectors
 
@@ -82,6 +82,10 @@ export default class Hello extends React.Component {
 👪 nested css
 
 💻 vendor prefixes
+
+🔧 Editable in developer tools
+
+👶 Super tiny: only 1.2K gzipped!
 
 💄 Offical library emoji
 
@@ -118,7 +122,7 @@ I'll probably write a detailed post about it.
 
 Heavily inspired from [glamor](https://github.com/threepointone/glamor), [styled-components](https://github.com/styled-components/styled-components) and [radium](https://github.com/FormidableLabs/radium)
 
-Special thanks to [thysultan](https://twitter.com/thysultan) for [stylis](https://github.com/thysultan/stylis.js)
+Special thanks to [thysultan](https://twitter.com/thysultan). [stylis](https://github.com/thysultan/stylis.js) is the bomb!
 
 #### Support
 
