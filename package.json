@@ -22,7 +22,8 @@
   "author": "siddharthkp",
   "license": "MIT",
   "dependencies": {
-    "babel-plugin-transform-decorators-legacy": "1.3.4"
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "stylis": "0.7.0"
   },
   "devDependencies": {
     "babel-cli": "6.18.0",

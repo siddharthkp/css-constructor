@@ -1,4 +1,5 @@
 import React from 'react';
+import stylis from 'stylis';
 
 /*
     This get's used as decorator @css
@@ -69,13 +70,16 @@ let fillProps = (rawCSS, props) => {
 }
 
 /*
-    Add stylesheet for component
+    Add insert rules in to css-constructor stylesheet
 */
 
 let insertRules = (realCSS) => {
-    let sheet = getStyleSheet();
+    let style = getStyleElement();
+    /* Get unique classname */
     let className = getHash(realCSS);
-    sheet.insertRule(`.${className}{${realCSS}}`, sheet.cssRules.length);
+    /* Convert nested CSS */
+    let styles = stylis(`.${className}`, realCSS);
+    style.innerHTML += styles;
     return className;
 }
 
@@ -86,19 +90,14 @@ let getHash = (string) => {
     return 'c' + hash;
 }
 
-let getStyleSheet = () => {
-    let sheets = document.styleSheets;
-    let index = -1;
-    for (let i = 0; i < sheets.length; i++) {
-        if (sheets[i].title === 'css-constructor') index = i;
-    }
-    if (index !== -1) return sheets[index];
-    else {
-        let styleElement = document.createElement('style');
+let getStyleElement = () => {
+    let styleElement = document.querySelector('[title=css-constructor]');
+    if (!styleElement) {
+        styleElement = document.createElement('style');
         styleElement.setAttribute('title', 'css-constructor');
         document.head.appendChild(styleElement);
-        return styleElement.sheet;
     }
+    return styleElement;
 }
 
 let camelCase = (key) => key.replace(/(\-[a-z])/g, $1 => $1.toUpperCase().replace('-',''));
