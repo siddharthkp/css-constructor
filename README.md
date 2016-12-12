@@ -23,12 +23,34 @@ export default class Hello extends React.Component {
     @css`
         font-size: 16px;
         text-align: center;
+
+        /* Use props in your CSS */
         color: {this.props.color};
-        font-family: monospace;
+
+        /* Pseudo selectors */
+        &:hover {
+            color: #FFF;
+        }
+
+        /* Nested elements */
+        img {
+            border-radius: 50%;
+        }
+        #handle {
+            margin-top: 20px;
+        }
+
+        /* Media queries */
+        @media (max-width: 600px) {
+            & {font-size: 18px;}
+        }
     `
 
     render () {
-        return <div>Styled {this.props.color} text!</div>
+        return (<div>
+            <img src="https://github.com/siddharthkp.png"/>
+            <div id="handle">@siddharthkp</div>
+        </div>)
     }
 };
 
@@ -50,20 +72,19 @@ export default class Hello extends React.Component {
 
 👶 Super tiny: only 1.2K gzipped
 
+🌀 pseudo selectors
+
+📱 media queries support
+
+👪 nested css
+
 💄 Offical library emoji
 
 --
 
 *Coming soon*
 
-🌀 pseudo selectors
-
-📱 media queries support
-
 💻 vendor prefixes
-
-👪 nested css
-
 
 --
 
