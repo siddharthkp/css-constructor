@@ -85,6 +85,10 @@ export default class Hello extends React.Component {
 
 💄 Official library emoji
 
+*Coming soon*
+
+🌏 server side rendering
+
 --
 
 #### Usage
