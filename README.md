@@ -83,7 +83,7 @@ export default class Hello extends React.Component {
 
 👶 Super tiny: only 1.2K gzipped!
 
-💄 Offical library emoji
+💄 Official library emoji
 
 --
 
