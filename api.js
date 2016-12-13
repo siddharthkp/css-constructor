@@ -102,4 +102,4 @@ let getStyleElement = () => {
 
 let camelCase = (key) => key.replace(/(\-[a-z])/g, $1 => $1.toUpperCase().replace('-',''));
 
-export default css;
+module.exports = css;

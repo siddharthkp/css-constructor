@@ -1,6 +1,6 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
-Object.defineProperty(exports, '__esModule', { value: !0 });var _extends = Object.assign || function (target) {
+var _extends = Object.assign || function (target) {
   for (var i = 1; i < arguments.length; i++) {
     var source = arguments[i];for (var key in source) {
       Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
@@ -60,7 +60,7 @@ Object.defineProperty(exports, '__esModule', { value: !0 });var _extends = Objec
   return a.replace(/(\-[a-z])/g, function (b) {
     return b.toUpperCase().replace('-', '');
   });
-};exports.default = css;
+};module.exports = css;
 
 },{"react":180,"stylis":181}],2:[function(require,module,exports){
 'use strict';
@@ -95,7 +95,7 @@ var _dec, _desc, _value, _class;
 //import css from 'css-constructor';  // production - use this!
 
 
-var _templateObject = _taggedTemplateLiteral(['\n        font-size: 16px;\n        text-align: center;\n\n        /* Use props in your CSS */\n        color: {this.props.color};\n\n        /* Pseudo selectors */\n        &:hover {\n            color: #FFF;\n        }\n\n        /* Nested elements */\n        img {\n            border-radius: 50%;\n        }\n        #handle {\n            margin-top: 20px;\n        }\n\n        /* Media queries */\n        @media (max-width: 600px) {\n            & {font-size: 18px;}\n        }\n    '], ['\n        font-size: 16px;\n        text-align: center;\n\n        /* Use props in your CSS */\n        color: {this.props.color};\n\n        /* Pseudo selectors */\n        &:hover {\n            color: #FFF;\n        }\n\n        /* Nested elements */\n        img {\n            border-radius: 50%;\n        }\n        #handle {\n            margin-top: 20px;\n        }\n\n        /* Media queries */\n        @media (max-width: 600px) {\n            & {font-size: 18px;}\n        }\n    ']);
+var _templateObject = _taggedTemplateLiteral(['\n        font-size: 16px;\n        text-align: center;\n\n        /* Use props in your CSS */\n        color: {this.props.color};\n\n        /* Adds vendor prefixes */\n        display: flex;\n\n        /* Pseudo selectors */\n        &:hover {\n            color: #FFF;\n        }\n\n        /* Nested elements */\n        img {\n            border-radius: 50%;\n        }\n        #handle {\n            margin-top: 20px;\n        }\n\n        /* Media queries */\n        @media (max-width: 600px) {\n            & {font-size: 18px;}\n        }\n    '], ['\n        font-size: 16px;\n        text-align: center;\n\n        /* Use props in your CSS */\n        color: {this.props.color};\n\n        /* Adds vendor prefixes */\n        display: flex;\n\n        /* Pseudo selectors */\n        &:hover {\n            color: #FFF;\n        }\n\n        /* Nested elements */\n        img {\n            border-radius: 50%;\n        }\n        #handle {\n            margin-top: 20px;\n        }\n\n        /* Media queries */\n        @media (max-width: 600px) {\n            & {font-size: 18px;}\n        }\n    ']);
 
 var _react = require('react');
 
