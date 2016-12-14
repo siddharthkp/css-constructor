@@ -99,4 +99,4 @@ Special thanks to [thysultan](https://twitter.com/thysultan). [stylis](https://g
 
 #### Support
 
-If you think 💄 is useful for your project, ⭐️ this repo for my motivation 🙇🏻
+⭐️ this repo!
