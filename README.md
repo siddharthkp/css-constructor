@@ -1,8 +1,13 @@
 ![CSS constructor for React](https://raw.githubusercontent.com/siddharthkp/css-constructor/master/header.png)
 
+&nbsp;
+
 Every React component gets an inbuilt javascript constructor for functional logic.
 
 **Introducing the css constructor for styling!**
+
+&nbsp;
+&nbsp;
 
 ```jsx
 import React from 'react';
