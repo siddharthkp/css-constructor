@@ -15,7 +15,7 @@ export default class Hello extends React.Component {
         text-align: center;
 
         /* Use props in your CSS */
-        color: {this.props.color};
+        color: {this.props.color.sampleColor};
 
         /* Pseudo selectors */
         &:hover {
