@@ -59,11 +59,16 @@ let fillProps = (rawCSS, props) => {
     let matches = rawCSS.match(re);
     if (matches && matches.length) {
         for (let match of matches) {
-            let keyword = match;
+            let keyword = match, replaceWord, propKeys;
             keyword = keyword.replace('{this.props.', '');
             keyword = keyword.substring(0, keyword.length-1); // remove }
             keyword = keyword.trim();
-            rawCSS = rawCSS.replace(match, props[keyword]);
+            replaceWord = props;
+            propKeys = keyword.split('.');
+            for (let i = 0; i < propKeys.length; i++) {
+                replaceWord = replaceWord[propKeys[i]];
+            }
+            rawCSS = rawCSS.replace(match, replaceWord);
         }
     }
     return rawCSS;
