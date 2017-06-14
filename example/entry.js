@@ -1,12 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Hello from './hello';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Hello from './hello'
 
 let color = {
-	sampleColor: 'papayawhip'
+  sampleColor: 'papayawhip'
 }
 
-ReactDOM.render(
-    <Hello color={color} />,
-    document.getElementById('container')
-);
+ReactDOM.render(<Hello color={color} />, document.getElementById('container'))

@@ -9,7 +9,8 @@
     "build": "babel api.js -o css-constructor.js",
     "copy": "cp css-constructor.js example/",
     "dev": "run-s build copy && cd example && run-s build start",
-    "watch": "npm-watch"
+    "watch": "npm-watch",
+    "precommit": "lint-staged"
   },
   "watch": {
     "build": "api.js",
@@ -31,8 +32,11 @@
     "babel-plugin-transform-object-rest-spread": "6.19.0",
     "babel-preset-es2015": "6.18.0",
     "babili": "0.0.9",
+    "husky": "0.13.3",
+    "lint-staged": "3.4.1",
     "npm-run-all": "3.1.2",
     "npm-watch": "0.1.6",
+    "prettier": "1.3.1",
     "uglifyify": "3.0.4"
   },
   "babel": {
@@ -45,6 +49,12 @@
       "transform-decorators-legacy",
       "transform-object-rest-spread",
       "transform-es2015-modules-commonjs"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write --no-semi --single-quote",
+      "git add"
     ]
   }
 }

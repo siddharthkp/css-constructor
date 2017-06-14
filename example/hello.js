@@ -1,16 +1,15 @@
-import React from 'react';
+import React from 'react'
 //import css from 'css-constructor';  // production - use this!
-import css from './css-constructor'; // development - for me
+import css from './css-constructor' // development - for me
 
 export default class Hello extends React.Component {
+  /* javascript constructor */
+  constructor(props) {
+    super(props)
+  }
 
-    /* javascript constructor */
-    constructor (props) {
-        super(props);
-    }
-
-    /* css constructor */
-    @css`
+  /* css constructor */
+  @css`
         font-size: 16px;
         text-align: center;
 
@@ -35,11 +34,12 @@ export default class Hello extends React.Component {
             & {font-size: 18px;}
         }
     `
-
-    render () {
-        return (<div className="existing">
-            <img src="https://github.com/siddharthkp.png"/>
-            <div id="handle">@siddharthkp</div>
-        </div>)
-    }
-};
+  render() {
+    return (
+      <div className="existing">
+        <img src="https://github.com/siddharthkp.png" />
+        <div id="handle">@siddharthkp</div>
+      </div>
+    )
+  }
+}
