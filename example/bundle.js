@@ -56,7 +56,7 @@ var _extends = Object.assign || function (target) {
       d = (0, _stylis2.default)('.' + c, a);return b.innerHTML += d, c;
 },
     getHash = function getHash() {
-  var b = Math.random().toString(36).substring(22);return 'c' + b;
+  var a = Math.random().toString(36).substring(7);return 'c' + a;
 },
     getStyleElement = function getStyleElement() {
   var a = document.querySelector('[title=css-constructor]');return a || (a = document.createElement('style'), a.setAttribute('title', 'css-constructor'), document.head.appendChild(a)), a;

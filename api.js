@@ -93,7 +93,7 @@ let insertRules = (realCSS) => {
 
 let getHash = (string) => {
     /* Get random string */
-    let hash = Math.random().toString(36).substring(22);
+    let hash = Math.random().toString(36).substring(7);
     /* CSS classnames should begin with an alphabet */
     return 'c' + hash;
 }
