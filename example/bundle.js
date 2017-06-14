@@ -1,8 +1,8 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 var _extends = Object.assign || function (target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i];for (var key in source) {
+  for (var source, i = 1; i < arguments.length; i++) {
+    for (var key in source = arguments[i], source) {
       Object.prototype.hasOwnProperty.call(source, key) && (target[key] = source[key]);
     }
   }return target;
@@ -15,12 +15,12 @@ var _extends = Object.assign || function (target) {
   return function (b, c, d) {
     return _extends({}, d, { value: function value() {
         var e = void 0,
-            f = d.value.apply(function (j) {
-          return e = j.props, j;
+            g = d.value.apply(function f(l) {
+          return e = l.props, l;
         }(this), arguments),
-            g = fillProps(a, e),
-            h = insertRules(g),
-            i = _extends({}, e, { className: h });return _react2.default.cloneElement(f, i, f.props.children);
+            h = fillProps(a, e),
+            j = insertRules(h),
+            k = _extends({}, e, { className: j });return _react2.default.cloneElement(g, k, g.props.children);
       } });
   };
 },
@@ -32,7 +32,11 @@ var _extends = Object.assign || function (target) {
         _iteratorError = void 0;try {
       for (var _step, _iterator = d[Symbol.iterator](); !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = !0) {
         var e = _step.value,
-            f = e;f = f.replace('{this.props.', ''), f = f.substring(0, f.length - 1), f = f.trim(), a = a.replace(e, b[f]);
+            f = e,
+            g = void 0,
+            h = void 0;f = f.replace('{this.props.', ''), f = f.substring(0, f.length - 1), f = f.trim(), g = b, h = f.split('.');for (var j = 0; j < h.length; j++) {
+          g = g[h[j]];
+        }a = a.replace(e, g);
       }
     } catch (err) {
       _didIteratorError = !0, _iteratorError = err;
@@ -51,7 +55,7 @@ var _extends = Object.assign || function (target) {
       d = (0, _stylis2.default)('.' + c, a);return b.innerHTML += d, c;
 },
     getHash = function getHash() {
-  var a = Math.random().toString(36).substring(22);return 'c' + a;
+  var b = Math.random().toString(36).substring(22);return 'c' + b;
 },
     getStyleElement = function getStyleElement() {
   var a = document.querySelector('[title=css-constructor]');return a || (a = document.createElement('style'), a.setAttribute('title', 'css-constructor'), document.head.appendChild(a)), a;
@@ -79,7 +83,11 @@ var _hello2 = _interopRequireDefault(_hello);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_reactDom2.default.render(_react2.default.createElement(_hello2.default, { color: 'papayawhip' }), document.getElementById('container'));
+var color = {
+    sampleColor: 'papayawhip'
+};
+
+_reactDom2.default.render(_react2.default.createElement(_hello2.default, { color: color }), document.getElementById('container'));
 
 },{"./hello":3,"react":180,"react-dom":29}],3:[function(require,module,exports){
 'use strict';
@@ -95,7 +103,7 @@ var _dec, _desc, _value, _class;
 //import css from 'css-constructor';  // production - use this!
 
 
-var _templateObject = _taggedTemplateLiteral(['\n        font-size: 16px;\n        text-align: center;\n\n        /* Use props in your CSS */\n        color: {this.props.color};\n\n        /* Pseudo selectors */\n        &:hover {\n            color: #FFF;\n        }\n\n        /* Nested elements */\n        img {\n            border-radius: 50%;\n        }\n        #handle {\n            margin-top: 20px;\n        }\n\n        /* Media queries */\n        @media (max-width: 600px) {\n            & {font-size: 18px;}\n        }\n    '], ['\n        font-size: 16px;\n        text-align: center;\n\n        /* Use props in your CSS */\n        color: {this.props.color};\n\n        /* Pseudo selectors */\n        &:hover {\n            color: #FFF;\n        }\n\n        /* Nested elements */\n        img {\n            border-radius: 50%;\n        }\n        #handle {\n            margin-top: 20px;\n        }\n\n        /* Media queries */\n        @media (max-width: 600px) {\n            & {font-size: 18px;}\n        }\n    ']);
+var _templateObject = _taggedTemplateLiteral(['\n        font-size: 16px;\n        text-align: center;\n\n        /* Use props in your CSS */\n        color: {this.props.color.sampleColor};\n\n        /* Pseudo selectors */\n        &:hover {\n            color: #FFF;\n        }\n\n        /* Nested elements */\n        img {\n            border-radius: 50%;\n        }\n        #handle {\n            margin-top: 20px;\n        }\n\n        /* Media queries */\n        @media (max-width: 600px) {\n            & {font-size: 18px;}\n        }\n    '], ['\n        font-size: 16px;\n        text-align: center;\n\n        /* Use props in your CSS */\n        color: {this.props.color.sampleColor};\n\n        /* Pseudo selectors */\n        &:hover {\n            color: #FFF;\n        }\n\n        /* Nested elements */\n        img {\n            border-radius: 50%;\n        }\n        #handle {\n            margin-top: 20px;\n        }\n\n        /* Media queries */\n        @media (max-width: 600px) {\n            & {font-size: 18px;}\n        }\n    ']);
 
 var _react = require('react');
 
@@ -739,15 +747,19 @@ module.exports = focusNode;
  *
  * The activeElement will be null only if the document or document body is not
  * yet defined.
+ *
+ * @param {?DOMDocument} doc Defaults to current document.
+ * @return {?DOMElement}
  */
-function getActiveElement() /*?DOMElement*/{
-  if (typeof document === 'undefined') {
+function getActiveElement(doc) /*?DOMElement*/{
+  doc = doc || (typeof document !== 'undefined' ? document : undefined);
+  if (typeof doc === 'undefined') {
     return null;
   }
   try {
-    return document.activeElement || document.body;
+    return doc.activeElement || doc.body;
   } catch (e) {
-    return document.body;
+    return doc.body;
   }
 }
 
@@ -875,10 +887,10 @@ module.exports = getMarkupWrap;
  */
 
 function getUnboundedScrollPosition(scrollable) {
-  if (scrollable === window) {
+  if (scrollable.Window && scrollable instanceof scrollable.Window) {
     return {
-      x: window.pageXOffset || document.documentElement.scrollLeft,
-      y: window.pageYOffset || document.documentElement.scrollTop
+      x: scrollable.pageXOffset || scrollable.document.documentElement.scrollLeft,
+      y: scrollable.pageYOffset || scrollable.document.documentElement.scrollTop
     };
   }
   return {
@@ -985,12 +997,18 @@ module.exports = hyphenateStyleName;
  * will remain to ensure logic does not differ in production.
  */
 
-function invariant(condition, format, a, b, c, d, e, f) {
-  if (process.env.NODE_ENV !== 'production') {
+var validateFormat = function validateFormat(format) {};
+
+if (process.env.NODE_ENV !== 'production') {
+  validateFormat = function validateFormat(format) {
     if (format === undefined) {
       throw new Error('invariant requires an error message argument');
     }
-  }
+  };
+}
+
+function invariant(condition, format, a, b, c, d, e, f) {
+  validateFormat(format);
 
   if (!condition) {
     var error;
@@ -1031,7 +1049,9 @@ module.exports = invariant;
  * @return {boolean} Whether or not the object is a DOM node.
  */
 function isNode(object) {
-  return !!(object && (typeof Node === 'function' ? object instanceof Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
+  var doc = object ? object.ownerDocument || object : document;
+  var defaultView = doc.defaultView || window;
+  return !!(object && (typeof defaultView.Node === 'function' ? object instanceof defaultView.Node : typeof object === 'object' && typeof object.nodeType === 'number' && typeof object.nodeName === 'string'));
 }
 
 module.exports = isNode;
@@ -1285,8 +1305,15 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 }).call(this,require('_process'))
 },{"./emptyFunction":11,"_process":28}],27:[function(require,module,exports){
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+
 'use strict';
 /* eslint-disable no-unused-vars */
+var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
 
@@ -1307,7 +1334,7 @@ function shouldUseNative() {
 		// Detect buggy property enumeration order in older V8 versions.
 
 		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line
+		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
 		test1[5] = 'de';
 		if (Object.getOwnPropertyNames(test1)[0] === '5') {
 			return false;
@@ -1336,7 +1363,7 @@ function shouldUseNative() {
 		}
 
 		return true;
-	} catch (e) {
+	} catch (err) {
 		// We don't expect any of the above to throw, but better to be safe.
 		return false;
 	}
@@ -1356,8 +1383,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 			}
 		}
 
-		if (Object.getOwnPropertySymbols) {
-			symbols = Object.getOwnPropertySymbols(from);
+		if (getOwnPropertySymbols) {
+			symbols = getOwnPropertySymbols(from);
 			for (var i = 0; i < symbols.length; i++) {
 				if (propIsEnumerable.call(from, symbols[i])) {
 					to[symbols[i]] = from[symbols[i]];
@@ -1540,6 +1567,10 @@ process.off = noop;
 process.removeListener = noop;
 process.removeAllListeners = noop;
 process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');
