@@ -15,12 +15,13 @@ var _extends = Object.assign || function (target) {
   return function (b, c, d) {
     return _extends({}, d, { value: function value() {
         var e = void 0,
-            g = d.value.apply(function f(l) {
-          return e = l.props, l;
+            g = d.value.apply(function f(m) {
+          return e = m.props, m;
         }(this), arguments),
             h = fillProps(a, e),
-            j = insertRules(h),
-            k = _extends({}, e, { className: j });return _react2.default.cloneElement(g, k, g.props.children);
+            j = g.props.className || '',
+            k = j + ' ' + insertRules(h),
+            l = _extends({}, e, { className: k });return _react2.default.cloneElement(g, l, g.props.children);
       } });
   };
 },
@@ -172,7 +173,7 @@ var Hello = (_dec = (0, _cssConstructor2.default)(_templateObject), (_class = fu
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'existing' },
                 _react2.default.createElement('img', { src: 'https://github.com/siddharthkp.png' }),
                 _react2.default.createElement(
                     'div',
@@ -1567,10 +1568,6 @@ process.off = noop;
 process.removeListener = noop;
 process.removeAllListeners = noop;
 process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
 
 process.binding = function (name) {
     throw new Error('process.binding is not supported');

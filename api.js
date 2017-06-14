@@ -25,7 +25,10 @@ let css = (rawCSS) => (parentClass, name, descriptor) => ({
 
         /* Replace props and return realCSS™ */
         let realCSS = fillProps(rawCSS, originalProps);
-        let className = insertRules(realCSS);
+
+        /* Merge classNames */
+        const existingClassNames = rendered.props.className || ''
+        let className = `${existingClassNames} ${insertRules(realCSS)}`;
 
         /* Convert real CSS to javascripty CSS */
         //let style = parseCss(realCSS);

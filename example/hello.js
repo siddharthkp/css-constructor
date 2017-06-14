@@ -37,7 +37,7 @@ export default class Hello extends React.Component {
     `
 
     render () {
-        return (<div>
+        return (<div className="existing">
             <img src="https://github.com/siddharthkp.png"/>
             <div id="handle">@siddharthkp</div>
         </div>)
