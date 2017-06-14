@@ -10,7 +10,8 @@
     "copy": "cp css-constructor.js example/",
     "dev": "run-s build copy && cd example && run-s build start",
     "watch": "npm-watch",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "prepublish": "npm run build"
   },
   "watch": {
     "build": "api.js",
