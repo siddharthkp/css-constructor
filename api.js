@@ -1,5 +1,5 @@
-import React from 'react';
-import stylis from 'stylis';
+import React from 'react'
+import stylis from 'stylis'
 
 /*
     This get's used as decorator @css
@@ -11,39 +11,39 @@ import stylis from 'stylis';
     this function gets the parent class, name of the function -
     render in this case and the descriptor for the function.
 */
-let css = (rawCSS) => (parentClass, name, descriptor) => ({
-    ...descriptor,
-    value: function () {
-        let originalProps;
+let css = rawCSS => (parentClass, name, descriptor) => ({
+  ...descriptor,
+  value: function() {
+    let originalProps
 
-        /* Totally stealing props by fake rendering the component */
-        let getProps = (object) => {
-            originalProps = object.props;
-            return object;
-        };
-        let rendered = descriptor.value.apply(getProps(this), arguments);
+    /* Totally stealing props by fake rendering the component */
+    let getProps = object => {
+      originalProps = object.props
+      return object
+    }
+    let rendered = descriptor.value.apply(getProps(this), arguments)
 
-        /* Replace props and return realCSS™ */
-        let realCSS = fillProps(rawCSS, originalProps);
+    /* Replace props and return realCSS™ */
+    let realCSS = fillProps(rawCSS, originalProps)
 
-        /* Merge classNames */
-        const existingClassNames = rendered.props.className || ''
-        let className = `${existingClassNames} ${insertRules(realCSS)}`;
+    /* Merge classNames */
+    const existingClassNames = rendered.props.className || ''
+    let className = `${existingClassNames} ${insertRules(realCSS)}`
 
-        /* Convert real CSS to javascripty CSS */
-        //let style = parseCss(realCSS);
+    /* Convert real CSS to javascripty CSS */
+    //let style = parseCss(realCSS);
 
-        /* Merge styles into original props */
-        let newProps = {...originalProps, className};
+    /* Merge styles into original props */
+    let newProps = { ...originalProps, className }
 
-        /*
+    /*
             Pass on a clone of the rendered component
             with our merged props.
             This overrides the original render function
         */
-        return React.cloneElement(rendered, newProps, rendered.props.children);
-    }
-});
+    return React.cloneElement(rendered, newProps, rendered.props.children)
+  }
+})
 
 /*
     Replace props with actual values
@@ -57,57 +57,62 @@ let css = (rawCSS) => (parentClass, name, descriptor) => ({
     color: {this.props.color || 'blue'}
 */
 let fillProps = (rawCSS, props) => {
-    rawCSS = rawCSS[0]; // template literal = array
-    let re = /{this.props.*}/g;
-    let matches = rawCSS.match(re);
-    if (matches && matches.length) {
-        for (let match of matches) {
-            let keyword = match, replaceWord, propKeys;
-            keyword = keyword.replace('{this.props.', '');
-            keyword = keyword.substring(0, keyword.length-1); // remove }
-            keyword = keyword.trim();
-            replaceWord = props;
-            propKeys = keyword.split('.');
-            for (let i = 0; i < propKeys.length; i++) {
-                replaceWord = replaceWord[propKeys[i]];
-            }
-            rawCSS = rawCSS.replace(match, replaceWord);
-        }
+  rawCSS = rawCSS[0] // template literal = array
+  let re = /{this.props.*}/g
+  let matches = rawCSS.match(re)
+  if (matches && matches.length) {
+    for (let match of matches) {
+      let keyword = match, replaceWord, propKeys
+      keyword = keyword.replace('{this.props.', '')
+      keyword = keyword.substring(0, keyword.length - 1) // remove }
+      keyword = keyword.trim()
+      replaceWord = props
+      propKeys = keyword.split('.')
+      for (let i = 0; i < propKeys.length; i++) {
+        replaceWord = replaceWord[propKeys[i]]
+      }
+      rawCSS = rawCSS.replace(match, replaceWord)
     }
-    return rawCSS;
+  }
+  return rawCSS
 }
 
 /*
     Add insert rules in to css-constructor stylesheet
 */
 
-let insertRules = (realCSS) => {
-    let style = getStyleElement();
-    /* Get unique classname */
-    let className = getHash(realCSS);
-    /* Convert nested CSS */
-    let styles = stylis(`.${className}`, realCSS);
-    style.innerHTML += styles;
-    return className;
+let insertRules = realCSS => {
+  let style = getStyleElement()
+  /* Get unique classname */
+  let className = getHash(realCSS)
+  console.log(className)
+  /* Convert nested CSS */
+  let styles = stylis(`.${className}`, realCSS)
+  style.innerHTML += styles
+  return className
 }
 
-let getHash = (string) => {
-    /* Get random string */
-    let hash = Math.random().toString(36).substring(7);
-    /* CSS classnames should begin with an alphabet */
-    return 'c' + hash;
+let getHash = string => {
+  let hash = 0
+  for (let i = 0; i < string.length; i++) {
+    let ch = string.charCodeAt(i)
+    hash = (hash << 5) - hash + ch
+  }
+  /* CSS classnames should begin with an alphabet */
+  return 'c' + hash.toString(36)
 }
 
 let getStyleElement = () => {
-    let styleElement = document.querySelector('[title=css-constructor]');
-    if (!styleElement) {
-        styleElement = document.createElement('style');
-        styleElement.setAttribute('title', 'css-constructor');
-        document.head.appendChild(styleElement);
-    }
-    return styleElement;
+  let styleElement = document.querySelector('[title=css-constructor]')
+  if (!styleElement) {
+    styleElement = document.createElement('style')
+    styleElement.setAttribute('title', 'css-constructor')
+    document.head.appendChild(styleElement)
+  }
+  return styleElement
 }
 
-let camelCase = (key) => key.replace(/(\-[a-z])/g, $1 => $1.toUpperCase().replace('-',''));
+let camelCase = key =>
+  key.replace(/(\-[a-z])/g, $1 => $1.toUpperCase().replace('-', ''))
 
-module.exports = css;
+module.exports = css

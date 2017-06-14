@@ -52,11 +52,12 @@ var _extends = Object.assign || function (target) {
 },
     insertRules = function insertRules(a) {
   var b = getStyleElement(),
-      c = getHash(a),
-      d = (0, _stylis2.default)('.' + c, a);return b.innerHTML += d, c;
+      c = getHash(a);console.log(c);var d = (0, _stylis2.default)('.' + c, a);return b.innerHTML += d, c;
 },
-    getHash = function getHash() {
-  var a = Math.random().toString(36).substring(7);return 'c' + a;
+    getHash = function getHash(a) {
+  var b = 0;if (0 == a.length) return b;for (var d, c = 0; c < a.length; c++) {
+    d = a.charCodeAt(c), b = (b << 5) - b + d;
+  }return 'c' + b.toString(36);
 },
     getStyleElement = function getStyleElement() {
   var a = document.querySelector('[title=css-constructor]');return a || (a = document.createElement('style'), a.setAttribute('title', 'css-constructor'), document.head.appendChild(a)), a;
@@ -94,7 +95,7 @@ _reactDom2.default.render(_react2.default.createElement(_hello2.default, { color
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.default = undefined;
 
@@ -123,32 +124,32 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function _applyDecoratedDescriptor(target, property, decorators, descriptor, context) {
-    var desc = {};
-    Object['ke' + 'ys'](descriptor).forEach(function (key) {
-        desc[key] = descriptor[key];
-    });
-    desc.enumerable = !!desc.enumerable;
-    desc.configurable = !!desc.configurable;
+  var desc = {};
+  Object['ke' + 'ys'](descriptor).forEach(function (key) {
+    desc[key] = descriptor[key];
+  });
+  desc.enumerable = !!desc.enumerable;
+  desc.configurable = !!desc.configurable;
 
-    if ('value' in desc || desc.initializer) {
-        desc.writable = true;
-    }
+  if ('value' in desc || desc.initializer) {
+    desc.writable = true;
+  }
 
-    desc = decorators.slice().reverse().reduce(function (desc, decorator) {
-        return decorator(target, property, desc) || desc;
-    }, desc);
+  desc = decorators.slice().reverse().reduce(function (desc, decorator) {
+    return decorator(target, property, desc) || desc;
+  }, desc);
 
-    if (context && desc.initializer !== void 0) {
-        desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
-        desc.initializer = undefined;
-    }
+  if (context && desc.initializer !== void 0) {
+    desc.value = desc.initializer ? desc.initializer.call(context) : void 0;
+    desc.initializer = undefined;
+  }
 
-    if (desc.initializer === void 0) {
-        Object['define' + 'Property'](target, property, desc);
-        desc = null;
-    }
+  if (desc.initializer === void 0) {
+    Object['define' + 'Property'](target, property, desc);
+    desc = null;
+  }
 
-    return desc;
+  return desc;
 }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -156,38 +157,37 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 // development - for me
 
 var Hello = (_dec = (0, _cssConstructor2.default)(_templateObject), (_class = function (_React$Component) {
-    _inherits(Hello, _React$Component);
+  _inherits(Hello, _React$Component);
 
-    /* javascript constructor */
-    function Hello(props) {
-        _classCallCheck(this, Hello);
+  /* javascript constructor */
+  function Hello(props) {
+    _classCallCheck(this, Hello);
 
-        return _possibleConstructorReturn(this, (Hello.__proto__ || Object.getPrototypeOf(Hello)).call(this, props));
+    return _possibleConstructorReturn(this, (Hello.__proto__ || Object.getPrototypeOf(Hello)).call(this, props));
+  }
+
+  /* css constructor */
+
+
+  _createClass(Hello, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'existing' },
+        _react2.default.createElement('img', { src: 'https://github.com/siddharthkp.png' }),
+        _react2.default.createElement(
+          'div',
+          { id: 'handle' },
+          '@siddharthkp'
+        )
+      );
     }
+  }]);
 
-    /* css constructor */
-
-
-    _createClass(Hello, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'existing' },
-                _react2.default.createElement('img', { src: 'https://github.com/siddharthkp.png' }),
-                _react2.default.createElement(
-                    'div',
-                    { id: 'handle' },
-                    '@siddharthkp'
-                )
-            );
-        }
-    }]);
-
-    return Hello;
+  return Hello;
 }(_react2.default.Component), (_applyDecoratedDescriptor(_class.prototype, 'render', [_dec], Object.getOwnPropertyDescriptor(_class.prototype, 'render'), _class.prototype)), _class));
 exports.default = Hello;
-;
 
 },{"./css-constructor":1,"react":180}],4:[function(require,module,exports){
 (function (process){
