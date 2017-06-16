@@ -85,7 +85,6 @@ let insertRules = realCSS => {
   let style = getStyleElement()
   /* Get unique classname */
   let className = getHash(realCSS)
-  console.log(className)
   /* Convert nested CSS */
   let styles = stylis(`.${className}`, realCSS)
   style.innerHTML += styles
