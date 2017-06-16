@@ -1,6 +1,6 @@
 {
   "name": "css-constructor",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "CSS constructor for your components",
   "main": "css-constructor.js",
   "homepage": "https://github.com/siddharthkp/css-constructor",
