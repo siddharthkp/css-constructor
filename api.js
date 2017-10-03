@@ -15,24 +15,21 @@ import stylis from 'stylis'
 let css = rawCSS => (parentClass, name, descriptor) => ({
   ...descriptor,
   value: function() {
-    let originalProps
-
-    /* Totally stealing props by fake rendering the component */
-    let getProps = object => {
-      originalProps = object.props
-      return object
-    }
-    let rendered = descriptor.value.apply(getProps(this), arguments)
-
-    /* Replace props and return realCSS™ */
-    let realCSS = fillProps(rawCSS, originalProps)
+    let
+      originalProps,
+      getProps = object => {   /* Totally stealing props by fake rendering the component */
+        originalProps = object.props
+        return object
+      },
+      rendered = descriptor.value.apply(getProps(this), arguments),
+      realCSS = fillProps(rawCSS, originalProps)     /* Replace props and return realCSS™ */
 
     /* Merge classNames */
     const existingClassNames = rendered.props.className || ''
     let className = `${existingClassNames} ${insertRules(realCSS)}`
 
     /* Convert real CSS to javascripty CSS */
-    //let style = parseCss(realCSS);
+    // let style = parseCss(realCSS);
 
     /* Merge styles into original props */
     let newProps = { ...originalProps, className }
@@ -60,12 +57,15 @@ let css = rawCSS => (parentClass, name, descriptor) => ({
 
 let fillProps = (rawCSS, props) => {
   rawCSS = rawCSS[0] // template literal = array
-  let 
+  let
     re = /{this.props.*}/g,
     matches = rawCSS.match(re)
   if (matches && matches.length) {
     for (let match of matches) {
-      let keyword = match, replaceWord, propKeys
+      let
+        keyword = match,
+        replaceWord,
+        propKeys
       keyword = keyword.replace('{this.props.', '')
       keyword = keyword.substring(0, keyword.length - 1) // remove }
       keyword = keyword.trim()
@@ -85,7 +85,7 @@ let fillProps = (rawCSS, props) => {
 */
 
 let insertRules = realCSS => {
-  let 
+  let
     style = getStyleElement(),     /* Get unique classname */
     className = getHash(realCSS),  /* Convert nested CSS */
     styles = stylis(`.${className}`, realCSS)
