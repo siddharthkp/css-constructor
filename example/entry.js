@@ -6,4 +6,7 @@ let color = {
   sampleColor: 'papayawhip'
 }
 
-ReactDOM.render(<Hello color={color} />, document.getElementById('container'))
+ReactDOM.render(
+  <Hello color={color} />, 
+  document.getElementById('container')
+)

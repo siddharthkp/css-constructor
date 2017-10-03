@@ -3,6 +3,7 @@ import React from 'react'
 import css from './css-constructor' // development - for me
 
 export default class Hello extends React.Component {
+
   /* javascript constructor */
   constructor(props) {
     super(props)
@@ -34,6 +35,7 @@ export default class Hello extends React.Component {
             & {font-size: 18px;}
         }
     `
+    
   render() {
     return (
       <div className="existing">
