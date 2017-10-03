@@ -11,6 +11,7 @@ import stylis from 'stylis'
     this function gets the parent class, name of the function -
     render in this case and the descriptor for the function.
 */
+
 let css = rawCSS => (parentClass, name, descriptor) => ({
   ...descriptor,
   value: function() {
@@ -56,10 +57,12 @@ let css = rawCSS => (parentClass, name, descriptor) => ({
     Does not evaluate conditions (yet)
     color: {this.props.color || 'blue'}
 */
+
 let fillProps = (rawCSS, props) => {
   rawCSS = rawCSS[0] // template literal = array
-  let re = /{this.props.*}/g
-  let matches = rawCSS.match(re)
+  let 
+    re = /{this.props.*}/g,
+    matches = rawCSS.match(re)
   if (matches && matches.length) {
     for (let match of matches) {
       let keyword = match, replaceWord, propKeys
@@ -82,11 +85,10 @@ let fillProps = (rawCSS, props) => {
 */
 
 let insertRules = realCSS => {
-  let style = getStyleElement()
-  /* Get unique classname */
-  let className = getHash(realCSS)
-  /* Convert nested CSS */
-  let styles = stylis(`.${className}`, realCSS)
+  let 
+    style = getStyleElement(),     /* Get unique classname */
+    className = getHash(realCSS),  /* Convert nested CSS */
+    styles = stylis(`.${className}`, realCSS)
   style.innerHTML += styles
   return className
 }

@@ -38,3 +38,6 @@ jspm_packages
 
 .DS_Store
 css-constructor.js
+
+# VSCode settings folder
+.vscode
