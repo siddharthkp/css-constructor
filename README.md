@@ -79,7 +79,7 @@ export default class Hello extends React.Component {
 
 #### Usage
 
-1. `npm install css-constructor --save`
+1. `npm install css-constructor`
 
 2. `import css from 'css-constructor'`
 
